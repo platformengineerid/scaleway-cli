@@ -1,5 +1,93 @@
 # Changelog
 
+## v2.4.1 (2022-03-14)
+
+### Features
+
+* **baremetal**: add support for install configuration ([#2055](https://github.com/scaleway/scaleway-cli/pull/2055))
+* **container**: add support for deploy ([#2081](https://github.com/scaleway/scaleway-cli/pull/2081))
+* **container**: add support for port ([#2080](https://github.com/scaleway/scaleway-cli/pull/2080))
+* **container, function**: add support for http-option ([#2138](https://github.com/scaleway/scaleway-cli/pull/2138))
+* **domain**: add support for DNAME ([#2154](https://github.com/scaleway/scaleway-cli/pull/2154))
+* **domain**: add support for the all strategy ([#2104](https://github.com/scaleway/scaleway-cli/pull/2104))
+* **domain**: enable all pages in ListDNSZoneVersions ([#2041](https://github.com/scaleway/scaleway-cli/pull/2041))
+* **instance**: add support for fr-par-3 ([#2070](https://github.com/scaleway/scaleway-cli/pull/2070))
+* **instance**: add support to make the server boot on a given volume ([#2049](https://github.com/scaleway/scaleway-cli/pull/2049))
+* **instance**: cleanup organization and project from volume ([#2069](https://github.com/scaleway/scaleway-cli/pull/2069))
+* **instance**: send the VolumeType for the root-volume when it's set by the user ([#2174](https://github.com/scaleway/scaleway-cli/pull/2174))
+* **lb**: add support for acl set ([#2087](https://github.com/scaleway/scaleway-cli/pull/2087))
+* **vpcgw**: add support for bastion ([#2106](https://github.com/scaleway/scaleway-cli/pull/2106))
+* **vpcgw**: add support for locked status ([#2057](https://github.com/scaleway/scaleway-cli/pull/2057))
+* add support for secret-environment-variables in container and function ([#2107](https://github.com/scaleway/scaleway-cli/pull/2107))
+* update generated cli ([#2062](https://github.com/scaleway/scaleway-cli/pull/2062))
+* update generated cli ([#2099](https://github.com/scaleway/scaleway-cli/pull/2099))
+
+### Fixes
+
+* **baremetal**: Remove baremetal old type ([#2084](https://github.com/scaleway/scaleway-cli/pull/2084))
+* **instance**: remove the check of volume type in the root volume validation ([#2147](https://github.com/scaleway/scaleway-cli/pull/2147))
+* **instance**: set the zone for the GET of the created image in a backup. ([#2158](https://github.com/scaleway/scaleway-cli/pull/2158))
+
+### Others
+
+* **chore - baremetal**: fix typo ([#2115](https://github.com/scaleway/scaleway-cli/pull/2115))
+* **chore - deps**: bump aws-sdk from 2.752.0 to 2.814.0 in /scripts/release ([#2010](https://github.com/scaleway/scaleway-cli/pull/2010))
+* **chore - deps**: bump github.com/gorilla/websocket from 1.4.2 to 1.5.0 ([#2125](https://github.com/scaleway/scaleway-cli/pull/2125))
+* **chore - deps**: bump github.com/hashicorp/go-version from 1.3.0 to 1.4.0 ([#2066](https://github.com/scaleway/scaleway-cli/pull/2066))
+* **chore - deps**: bump github.com/mattn/go-colorable from 0.1.11 to 0.1.12 ([#2021](https://github.com/scaleway/scaleway-cli/pull/2021))
+* **chore - deps**: bump github.com/spf13/cobra from 1.2.1 to 1.3.0 ([#2051](https://github.com/scaleway/scaleway-cli/pull/2051))
+* **chore - deps**: bump node-fetch from 2.6.1 to 2.6.7 in /scripts/release ([#2077](https://github.com/scaleway/scaleway-cli/pull/2077))
+* **chore**: bump SDK ([#2047](https://github.com/scaleway/scaleway-cli/pull/2047))
+* **chore**: bump scaleway sdk ([#2039](https://github.com/scaleway/scaleway-cli/pull/2039))
+* **chore**: bump sdk ([#2050](https://github.com/scaleway/scaleway-cli/pull/2050))
+* **chore**: bump sdk ([#2078](https://github.com/scaleway/scaleway-cli/pull/2078))
+* **docs**: add references to lb and vpc commands in the README ([#2048](https://github.com/scaleway/scaleway-cli/pull/2048))
+bump sdk (#2061)
+bump sdk (#2071)
+
+
+
+## v2.4.1 (2022-03-14)
+
+### Features
+
+* **baremetal**: add support for install configuration ([#2055](https://github.com/scaleway/scaleway-cli/pull/2055))
+* **container**: add support for deploy ([#2081](https://github.com/scaleway/scaleway-cli/pull/2081))
+* **container**: add support for port ([#2080](https://github.com/scaleway/scaleway-cli/pull/2080))
+* **container, function**: add support for http-option ([#2138](https://github.com/scaleway/scaleway-cli/pull/2138))
+* **domain**: add support for DNAME ([#2154](https://github.com/scaleway/scaleway-cli/pull/2154))
+* **domain**: add support for the all strategy ([#2104](https://github.com/scaleway/scaleway-cli/pull/2104))
+* **domain**: enable all pages in ListDNSZoneVersions ([#2041](https://github.com/scaleway/scaleway-cli/pull/2041))
+* **instance**: add support for fr-par-3 ([#2070](https://github.com/scaleway/scaleway-cli/pull/2070))
+* **instance**: add support to make the server boot on a given volume ([#2049](https://github.com/scaleway/scaleway-cli/pull/2049))
+* **instance**: cleanup organization and project from volume ([#2069](https://github.com/scaleway/scaleway-cli/pull/2069))
+* **instance**: send the VolumeType for the root-volume when it's set by the user ([#2174](https://github.com/scaleway/scaleway-cli/pull/2174))
+* **lb**: add support for acl set ([#2087](https://github.com/scaleway/scaleway-cli/pull/2087))
+* **vpcgw**: add support for bastion ([#2106](https://github.com/scaleway/scaleway-cli/pull/2106))
+* **vpcgw**: add support for locked status ([#2057](https://github.com/scaleway/scaleway-cli/pull/2057))
+* add support for secret-environment-variables in container and function ([#2107](https://github.com/scaleway/scaleway-cli/pull/2107))
+* update generated cli ([#2062](https://github.com/scaleway/scaleway-cli/pull/2062))
+* update generated cli ([#2099](https://github.com/scaleway/scaleway-cli/pull/2099))
+
+### Fixes
+
+* **baremetal**: Remove baremetal old type ([#2084](https://github.com/scaleway/scaleway-cli/pull/2084))
+* **instance**: remove the check of volume type in the root volume validation ([#2147](https://github.com/scaleway/scaleway-cli/pull/2147))
+* **instance**: set the zone for the GET of the created image in a backup. ([#2158](https://github.com/scaleway/scaleway-cli/pull/2158))
+
+### Others
+
+* **chore - baremetal**: fix typo ([#2115](https://github.com/scaleway/scaleway-cli/pull/2115))
+* **chore - deps**: bump aws-sdk from 2.752.0 to 2.814.0 in /scripts/release ([#2010](https://github.com/scaleway/scaleway-cli/pull/2010))
+* **chore - deps**: bump github.com/gorilla/websocket from 1.4.2 to 1.5.0 ([#2125](https://github.com/scaleway/scaleway-cli/pull/2125))
+* **chore - deps**: bump github.com/hashicorp/go-version from 1.3.0 to 1.4.0 ([#2066](https://github.com/scaleway/scaleway-cli/pull/2066))
+* **chore - deps**: bump github.com/mattn/go-colorable from 0.1.11 to 0.1.12 ([#2021](https://github.com/scaleway/scaleway-cli/pull/2021))
+* **chore - deps**: bump github.com/spf13/cobra from 1.2.1 to 1.3.0 ([#2051](https://github.com/scaleway/scaleway-cli/pull/2051))
+* **chore - deps**: bump node-fetch from 2.6.1 to 2.6.7 in /scripts/release ([#2077](https://github.com/scaleway/scaleway-cli/pull/2077))
+* **docs**: add references to lb and vpc commands in the README ([#2048](https://github.com/scaleway/scaleway-cli/pull/2048))
+
+
+
 ## v2.4.0 (2021-10-28)
 
 ### Features
