@@ -11,7 +11,7 @@ import (
 )
 
 func RunShell(ctx context.Context, printer *Printer, meta *meta, rootCmd *cobra.Command, args []string) {
-	err := printer.Print(fmt.Errorf("shell is currently disabled on freebsd"), nil)
+	err := printer.Print(meta.Client, fmt.Errorf("shell is currently disabled on freebsd"), nil)
 	if err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)
 	}
