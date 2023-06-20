@@ -1,3 +1,5 @@
+//go:build wasm
+
 package wasm
 
 import (
@@ -19,7 +21,10 @@ func getCommands() *core.Commands {
 }
 
 type RunConfig struct {
-	JWT string `js:"jwt"`
+	JWT                   string `js:"jwt"`
+	DefaultProjectID      string `js:"defaultProjectID"`
+	DefaultOrganizationID string `js:"defaultOrganizationID"`
+	APIUrl                string `js:"apiUrl"`
 }
 
 type RunResponse struct {
@@ -37,7 +42,10 @@ func runCommand(cfg *RunConfig, args []string, stdout io.Writer, stderr io.Write
 		Stderr:    stderr,
 		Stdin:     nil,
 		Platform: &web.Platform{
-			JWT: cfg.JWT,
+			JWT:                   cfg.JWT,
+			DefaultProjectID:      cfg.DefaultProjectID,
+			DefaultOrganizationID: cfg.DefaultOrganizationID,
+			APIUrl:                cfg.APIUrl,
 		},
 	})
 

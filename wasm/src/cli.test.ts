@@ -14,6 +14,20 @@ import {loadWasmBinary} from "./utils";
 const CLI_PACKAGE = 'scw'
 const CLI_CALLBACK = 'cliLoaded'
 
+const emptyConfig = (
+    override?: {
+        jwt?: string,
+        defaultProjectID?: string,
+        defaultOrganizationID?: string,
+        apiUrl?: string
+    }
+): RunConfig => ({
+    jwt: override?.jwt || "",
+    defaultProjectID: override?.defaultProjectID || "",
+    defaultOrganizationID: override?.defaultOrganizationID || "",
+    apiUrl: override?.apiUrl || ""
+})
+
 describe('With wasm CLI', async () => {
     let cli: CLI
 
@@ -24,9 +38,7 @@ describe('With wasm CLI', async () => {
 
     const run = async (expected: string | RegExp, command: string[], runCfg: RunConfig | null = null) => {
         if (runCfg === null) {
-            runCfg = {
-                jwt: "",
-            }
+            runCfg = emptyConfig()
         }
 
         const resp = await cli.run(runCfg, command)
@@ -36,9 +48,7 @@ describe('With wasm CLI', async () => {
 
     const runWithError = async (expected: string | RegExp, command: string[], runCfg: RunConfig | null = null) => {
         if (runCfg === null) {
-            runCfg = {
-                jwt: "",
-            }
+            runCfg = emptyConfig()
         }
         const resp = await cli.run(runCfg, command)
         expect(resp.exitCode).toBeGreaterThan(0)
@@ -47,9 +57,7 @@ describe('With wasm CLI', async () => {
 
     const complete = async (expected: string[], command: string[], runCfg: RunConfig | null = null) => {
         if (runCfg === null) {
-            runCfg = {
-                jwt: "",
-            }
+            runCfg = emptyConfig()
         }
         let toComplete = command.pop() || ""
 
@@ -69,6 +77,30 @@ describe('With wasm CLI', async () => {
     it('can use jwt', async () => runWithError(/.*denied authentication.*invalid JWT.*/, ['instance', 'server', 'list']))
 
     it('can complete', async () => complete(['server', 'image', 'volume'], ['instance', '']))
+
+    it('can configure terminal size', async () => {
+        const runCfg = emptyConfig()
+
+        await cli.configureOutput({width: 100, color: false})
+        const resp = await cli.run(runCfg, ['marketplace', 'image', 'list'])
+        expect(resp.exitCode).toBe(0)
+
+        const lines = resp.stdout.split("\n")
+        expect(lines.length).toBeGreaterThan(1)
+        expect(lines[2].length).toBeLessThan(100)
+    })
+
+    it('can enable colors', async () => {
+        const runCfg = emptyConfig()
+
+        await cli.configureOutput({width: 100, color: false})
+        const resp = await cli.run(runCfg, ['invalid'])
+        await cli.configureOutput({width: 100, color: true})
+        const coloredResp = await cli.run(runCfg, ['invalid'])
+
+        expect(coloredResp.stderr.length).toBeGreaterThan(resp.stderr.length)
+        expect(coloredResp.stderr).not.toEqual(resp.stderr)
+    })
 
     afterAll(async () => {
         try {
