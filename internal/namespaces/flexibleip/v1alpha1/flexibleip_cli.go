@@ -358,7 +358,7 @@ func fipIPAttach() *core.Command {
 		Resource:  "ip",
 		Verb:      "attach",
 		// Deprecated:    false,
-		ArgsType: reflect.TypeOf(flexibleip.AttachFlexibleIPRequest{}),
+		ArgsType: reflect.TypeOf(flexibleip.AttachFlexibleIPsRequest{}),
 		ArgSpecs: core.ArgSpecs{
 			{
 				Name:       "fips-ids.{index}",
@@ -377,7 +377,7 @@ func fipIPAttach() *core.Command {
 			core.ZoneArgSpec(scw.ZoneFrPar1, scw.ZoneFrPar2, scw.ZoneNlAms1),
 		},
 		Run: func(ctx context.Context, args interface{}) (i interface{}, e error) {
-			request := args.(*flexibleip.AttachFlexibleIPRequest)
+			request := args.(*flexibleip.AttachFlexibleIPsRequest)
 
 			client := core.ExtractClient(ctx)
 			api := flexibleip.NewAPI(client)
@@ -395,7 +395,7 @@ func fipIPDetach() *core.Command {
 		Resource:  "ip",
 		Verb:      "detach",
 		// Deprecated:    false,
-		ArgsType: reflect.TypeOf(flexibleip.DetachFlexibleIPRequest{}),
+		ArgsType: reflect.TypeOf(flexibleip.DetachFlexibleIPsRequest{}),
 		ArgSpecs: core.ArgSpecs{
 			{
 				Name:       "fips-ids.{index}",
@@ -407,7 +407,7 @@ func fipIPDetach() *core.Command {
 			core.ZoneArgSpec(scw.ZoneFrPar1, scw.ZoneFrPar2, scw.ZoneNlAms1),
 		},
 		Run: func(ctx context.Context, args interface{}) (i interface{}, e error) {
-			request := args.(*flexibleip.DetachFlexibleIPRequest)
+			request := args.(*flexibleip.DetachFlexibleIPsRequest)
 
 			client := core.ExtractClient(ctx)
 			api := flexibleip.NewAPI(client)
