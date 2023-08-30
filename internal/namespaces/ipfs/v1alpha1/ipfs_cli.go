@@ -46,8 +46,7 @@ func ipfsPin() *core.Command {
 	return &core.Command{
 		Short: `Manage your pins (create-by-*, delete, list by volume ID)`,
 		Long: `A pin is an abstract object that holds a Content Identifier (CID). It is defined that during the lifespan of a pin, the CID (and all sub-CIDs) must be hosted by the service
-It is possible that many pins target the same CID, regardless of the user.
-`,
+It is possible that many pins target the same CID, regardless of the user.`,
 		Namespace: "ipfs",
 		Resource:  "pin",
 	}
@@ -57,8 +56,7 @@ func ipfsVolume() *core.Command {
 	return &core.Command{
 		Short: `Manage your volumes (create, delete, list by Project ID)`,
 		Long: `A volume is bucket of pins. It is similar to an Object Storage bucket. Volumes are useful to gather pins with similar lifespans
-All pins must be attached to a volume. And all volumes must be attached to a Project ID.
-`,
+All pins must be attached to a volume. And all volumes must be attached to a Project ID.`,
 		Namespace: "ipfs",
 		Resource:  "volume",
 	}
@@ -372,14 +370,14 @@ func ipfsPinGet() *core.Command {
 		ArgsType: reflect.TypeOf(ipfs.GetPinRequest{}),
 		ArgSpecs: core.ArgSpecs{
 			{
-				Name:       "volume-id",
-				Required:   false,
+				Name:       "pin-id",
+				Required:   true,
 				Deprecated: false,
 				Positional: false,
 			},
 			{
-				Name:       "pin-id",
-				Required:   true,
+				Name:       "volume-id",
+				Required:   false,
 				Deprecated: false,
 				Positional: false,
 			},
@@ -472,14 +470,14 @@ This content can therefore be removed and no longer provided on the IPFS network
 		ArgsType: reflect.TypeOf(ipfs.DeletePinRequest{}),
 		ArgSpecs: core.ArgSpecs{
 			{
-				Name:       "volume-id",
-				Required:   false,
+				Name:       "pin-id",
+				Required:   true,
 				Deprecated: false,
 				Positional: false,
 			},
 			{
-				Name:       "pin-id",
-				Required:   true,
+				Name:       "volume-id",
+				Required:   false,
 				Deprecated: false,
 				Positional: false,
 			},

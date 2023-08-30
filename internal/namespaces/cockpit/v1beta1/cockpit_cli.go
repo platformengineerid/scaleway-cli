@@ -51,7 +51,7 @@ func GetGeneratedCommands() *core.Commands {
 func cockpitRoot() *core.Command {
 	return &core.Command{
 		Short:     `Cockpit API`,
-		Long:      `Cockpit's API allows you to activate your Cockpit on your Projects. Scaleway's Cockpit stores metrics and logs and provides a dedicated Grafana for dashboarding to visualize them.`,
+		Long:      `Cockpit API.`,
 		Namespace: "cockpit",
 	}
 }
@@ -643,7 +643,6 @@ func cockpitGrafanaUserDelete() *core.Command {
 		// Deprecated:    false,
 		ArgsType: reflect.TypeOf(cockpit.DeleteGrafanaUserRequest{}),
 		ArgSpecs: core.ArgSpecs{
-			core.ProjectIDArgSpec(),
 			{
 				Name:       "grafana-user-id",
 				Short:      `ID of the Grafana user`,
@@ -651,6 +650,7 @@ func cockpitGrafanaUserDelete() *core.Command {
 				Deprecated: false,
 				Positional: false,
 			},
+			core.ProjectIDArgSpec(),
 		},
 		Run: func(ctx context.Context, args interface{}) (i interface{}, e error) {
 			request := args.(*cockpit.DeleteGrafanaUserRequest)
@@ -679,7 +679,6 @@ func cockpitGrafanaUserResetPassword() *core.Command {
 		// Deprecated:    false,
 		ArgsType: reflect.TypeOf(cockpit.ResetGrafanaUserPasswordRequest{}),
 		ArgSpecs: core.ArgSpecs{
-			core.ProjectIDArgSpec(),
 			{
 				Name:       "grafana-user-id",
 				Short:      `ID of the Grafana user`,
@@ -687,6 +686,7 @@ func cockpitGrafanaUserResetPassword() *core.Command {
 				Deprecated: false,
 				Positional: false,
 			},
+			core.ProjectIDArgSpec(),
 		},
 		Run: func(ctx context.Context, args interface{}) (i interface{}, e error) {
 			request := args.(*cockpit.ResetGrafanaUserPasswordRequest)
